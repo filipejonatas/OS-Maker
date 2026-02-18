@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
-import { Prisma } from "../../generated/prisma/client.js";
+import { PrismaService } from "../../prisma/prisma.service";
+import { Prisma } from "../../../generated/prisma/client.js";
 
 @Injectable()
 export class FaturasService {
-    constructor(private readonly prisma: PrismaService) {}
+    constructor(private readonly prisma: PrismaService) { }
 
     async findAll() {
         // Sem await está OK aqui (só retorna a lista)
@@ -30,7 +30,7 @@ export class FaturasService {
 
     async create(data: Prisma.FaturaCreateInput) {
         // ✅ Com await se você quiser logar ou fazer algo depois
-        const fatura = await this.prisma.fatura.create({ 
+        const fatura = await this.prisma.fatura.create({
             data,
             include: { cliente: true }
         });
@@ -44,8 +44,8 @@ export class FaturasService {
         // ✅ Com await para verificar se existe antes
         await this.findOne(id); // Lança erro se não existir
 
-        return this.prisma.fatura.update({ 
-            where: { id }, 
+        return this.prisma.fatura.update({
+            where: { id },
             data,
             include: { cliente: true }
         });
