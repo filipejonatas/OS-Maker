@@ -1,7 +1,7 @@
 import { IsEmail, IsString, MinLength } from "class-validator";
 
 // validacao da senha e email
-export class AuthDto {
+export class LoginDto {
     @IsEmail({}, { message: 'Email inválido' })
     email: string;
 

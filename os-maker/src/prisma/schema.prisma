@@ -4,36 +4,55 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
+  provider = "postgresql"
+}
+
+enum FaturaStatus {
+  ABERTA
+  PAGA
+  CANCELADA
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
 }
 
 model Cliente {
-  cnpj         String   @id
-  razaoSocial  String
-  endereco     String
-  
-  faturas      Fatura[]
-  
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  
+  cnpj        String   @id
+  razaoSocial String
+  endereco    String
+
+  faturas     Fatura[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
   @@map("clientes")
 }
 
 model Fatura {
-  id                    String   @id @default(uuid())
-  numeroFatura          String   @unique
-  dataEmissao           DateTime @default(now())
-  
-  clienteCnpj           String
-  cliente               Cliente  @relation(fields: [clienteCnpj], references: [cnpj])
-  
-  descricaoPagamento    String   @db.Text
-  descricaoLocacao      String   @db.Text
-  valorLocacao          Decimal  @db.Decimal(10, 2)
-  
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime @updatedAt
-  
+  id                 String       @id @default(uuid())
+  numeroFatura       String       @unique
+  dataEmissao        DateTime     @default(now())
+
+  clienteCnpj        String
+  cliente            Cliente      @relation(fields: [clienteCnpj], references: [cnpj])
+
+  descricaoPagamento String       @db.Text
+  descricaoLocacao   String       @db.Text
+  valorLocacao       Decimal      @db.Decimal(10, 2)
+
+  status             FaturaStatus @default(ABERTA)
+
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
   @@map("faturas")
 }
