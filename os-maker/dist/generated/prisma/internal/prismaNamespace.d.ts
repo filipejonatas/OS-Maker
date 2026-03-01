@@ -1,7 +1,7 @@
 import * as runtime from "@prisma/client/runtime/client";
-import type * as Prisma from "../models.js";
-import { type PrismaClient } from "./class.js";
-export type * from '../models.js';
+import type * as Prisma from "../models";
+import { type PrismaClient } from "./class";
+export type * from '../models';
 export type DMMF = typeof runtime.DMMF;
 export type PrismaPromise<T> = runtime.Types.Public.PrismaPromise<T>;
 export declare const PrismaClientKnownRequestError: typeof runtime.PrismaClientKnownRequestError;
@@ -157,6 +157,7 @@ export type ExcludeUnderscoreKeys<T extends string> = T extends `_${string}` ? n
 export type FieldRef<Model, FieldType> = runtime.FieldRef<Model, FieldType>;
 type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRef<Model, FieldType>;
 export declare const ModelName: {
+    readonly User: "User";
     readonly Cliente: "Cliente";
     readonly Fatura: "Fatura";
 };
@@ -171,10 +172,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "cliente" | "fatura";
+        modelProps: "user" | "cliente" | "fatura";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
+        User: {
+            payload: Prisma.$UserPayload<ExtArgs>;
+            fields: Prisma.UserFieldRefs;
+            operations: {
+                findUnique: {
+                    args: Prisma.UserFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload> | null;
+                };
+                findUniqueOrThrow: {
+                    args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>;
+                };
+                findFirst: {
+                    args: Prisma.UserFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload> | null;
+                };
+                findFirstOrThrow: {
+                    args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>;
+                };
+                findMany: {
+                    args: Prisma.UserFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[];
+                };
+                create: {
+                    args: Prisma.UserCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>;
+                };
+                createMany: {
+                    args: Prisma.UserCreateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                createManyAndReturn: {
+                    args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[];
+                };
+                delete: {
+                    args: Prisma.UserDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>;
+                };
+                update: {
+                    args: Prisma.UserUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>;
+                };
+                deleteMany: {
+                    args: Prisma.UserDeleteManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateMany: {
+                    args: Prisma.UserUpdateManyArgs<ExtArgs>;
+                    result: BatchPayload;
+                };
+                updateManyAndReturn: {
+                    args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>[];
+                };
+                upsert: {
+                    args: Prisma.UserUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$UserPayload>;
+                };
+                aggregate: {
+                    args: Prisma.UserAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateUser>;
+                };
+                groupBy: {
+                    args: Prisma.UserGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.UserGroupByOutputType>[];
+                };
+                count: {
+                    args: Prisma.UserCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.UserCountAggregateOutputType> | number;
+                };
+            };
+        };
         Cliente: {
             payload: Prisma.$ClientePayload<ExtArgs>;
             fields: Prisma.ClienteFieldRefs;
@@ -354,6 +429,14 @@ export declare const TransactionIsolationLevel: {
     readonly Serializable: "Serializable";
 };
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel];
+export declare const UserScalarFieldEnum: {
+    readonly id: "id";
+    readonly email: "email";
+    readonly password: "password";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
 export declare const ClienteScalarFieldEnum: {
     readonly cnpj: "cnpj";
     readonly razaoSocial: "razaoSocial";
@@ -370,6 +453,7 @@ export declare const FaturaScalarFieldEnum: {
     readonly descricaoPagamento: "descricaoPagamento";
     readonly descricaoLocacao: "descricaoLocacao";
     readonly valorLocacao: "valorLocacao";
+    readonly status: "status";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };
@@ -390,6 +474,8 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>;
 export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>;
 export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>;
+export type EnumFaturaStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FaturaStatus'>;
+export type ListEnumFaturaStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'FaturaStatus[]'>;
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>;
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>;
 export type BatchPayload = {
@@ -416,6 +502,7 @@ export type PrismaClientOptions = ({
     comments?: runtime.SqlCommenterPlugin[];
 };
 export type GlobalOmitConfig = {
+    user?: Prisma.UserOmit;
     cliente?: Prisma.ClienteOmit;
     fatura?: Prisma.FaturaOmit;
 };

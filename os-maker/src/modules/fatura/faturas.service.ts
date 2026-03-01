@@ -3,8 +3,8 @@ import { PrismaService } from "../../prisma/prisma.service";
 import { CreateFaturaDto } from "./criar-fatura.dto";
 import { FiltrarFaturaDto } from "./filtrar-fatura.dto";
 import { UpdateFaturaDto } from "./atualizar-fatura.dto";
-import { FaturaStatus } from "../../../generated/prisma/client.js";
-import { Prisma } from "../../../generated/prisma/client.js";
+import { FaturaStatus } from "../../../generated/prisma/client";
+import { Prisma } from "../../../generated/prisma/client";
 
 @Injectable()
 export class FaturasService {

@@ -1,5 +1,5 @@
 import { IsOptional, IsString, IsDateString, IsEnum, IsUUID } from "class-validator";
-import { FaturaStatus } from "../../../generated/prisma/client.js";
+import { FaturaStatus } from "../../../generated/prisma/client";
 
 export class FiltrarFaturaDto {
     @IsOptional()

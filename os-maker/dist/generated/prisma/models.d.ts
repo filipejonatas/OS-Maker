@@ -1,3 +1,4 @@
-export type * from './models/Cliente.js';
-export type * from './models/Fatura.js';
-export type * from './commonInputTypes.js';
+export type * from './models/User';
+export type * from './models/Cliente';
+export type * from './models/Fatura';
+export type * from './commonInputTypes';

@@ -1,5 +1,6 @@
 import type * as runtime from "@prisma/client/runtime/client";
-import type * as Prisma from "./internal/prismaNamespace.js";
+import * as $Enums from "./enums";
+import type * as Prisma from "./internal/prismaNamespace";
 export type StringFilter<$PrismaModel = never> = {
     equals?: string | Prisma.StringFieldRefInput<$PrismaModel>;
     in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>;
@@ -64,6 +65,12 @@ export type DecimalFilter<$PrismaModel = never> = {
     gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>;
     not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string;
 };
+export type EnumFaturaStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaturaStatus | Prisma.EnumFaturaStatusFieldRefInput<$PrismaModel>;
+    in?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFaturaStatusFilter<$PrismaModel> | $Enums.FaturaStatus;
+};
 export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>;
     in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>;
@@ -78,6 +85,15 @@ export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
     _sum?: Prisma.NestedDecimalFilter<$PrismaModel>;
     _min?: Prisma.NestedDecimalFilter<$PrismaModel>;
     _max?: Prisma.NestedDecimalFilter<$PrismaModel>;
+};
+export type EnumFaturaStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaturaStatus | Prisma.EnumFaturaStatusFieldRefInput<$PrismaModel>;
+    in?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFaturaStatusWithAggregatesFilter<$PrismaModel> | $Enums.FaturaStatus;
+    _count?: Prisma.NestedIntFilter<$PrismaModel>;
+    _min?: Prisma.NestedEnumFaturaStatusFilter<$PrismaModel>;
+    _max?: Prisma.NestedEnumFaturaStatusFilter<$PrismaModel>;
 };
 export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | Prisma.StringFieldRefInput<$PrismaModel>;
@@ -151,6 +167,12 @@ export type NestedDecimalFilter<$PrismaModel = never> = {
     gte?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>;
     not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string;
 };
+export type NestedEnumFaturaStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaturaStatus | Prisma.EnumFaturaStatusFieldRefInput<$PrismaModel>;
+    in?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFaturaStatusFilter<$PrismaModel> | $Enums.FaturaStatus;
+};
 export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: runtime.Decimal | runtime.DecimalJsLike | number | string | Prisma.DecimalFieldRefInput<$PrismaModel>;
     in?: runtime.Decimal[] | runtime.DecimalJsLike[] | number[] | string[] | Prisma.ListDecimalFieldRefInput<$PrismaModel>;
@@ -165,4 +187,13 @@ export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     _sum?: Prisma.NestedDecimalFilter<$PrismaModel>;
     _min?: Prisma.NestedDecimalFilter<$PrismaModel>;
     _max?: Prisma.NestedDecimalFilter<$PrismaModel>;
+};
+export type NestedEnumFaturaStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.FaturaStatus | Prisma.EnumFaturaStatusFieldRefInput<$PrismaModel>;
+    in?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    notIn?: $Enums.FaturaStatus[] | Prisma.ListEnumFaturaStatusFieldRefInput<$PrismaModel>;
+    not?: Prisma.NestedEnumFaturaStatusWithAggregatesFilter<$PrismaModel> | $Enums.FaturaStatus;
+    _count?: Prisma.NestedIntFilter<$PrismaModel>;
+    _min?: Prisma.NestedEnumFaturaStatusFilter<$PrismaModel>;
+    _max?: Prisma.NestedEnumFaturaStatusFilter<$PrismaModel>;
 };

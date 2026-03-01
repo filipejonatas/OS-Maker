@@ -1,6 +1,6 @@
 import * as runtime from "@prisma/client/runtime/index-browser";
-export type * from '../models.js';
-export type * from './prismaNamespace.js';
+export type * from '../models';
+export type * from './prismaNamespace';
 export declare const Decimal: typeof runtime.Decimal;
 export declare const NullTypes: {
     DbNull: (new (secret: never) => typeof runtime.DbNull);
@@ -11,6 +11,7 @@ export declare const DbNull: import("@prisma/client-runtime-utils").DbNullClass;
 export declare const JsonNull: import("@prisma/client-runtime-utils").JsonNullClass;
 export declare const AnyNull: import("@prisma/client-runtime-utils").AnyNullClass;
 export declare const ModelName: {
+    readonly User: "User";
     readonly Cliente: "Cliente";
     readonly Fatura: "Fatura";
 };
@@ -22,6 +23,14 @@ export declare const TransactionIsolationLevel: {
     readonly Serializable: "Serializable";
 };
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel];
+export declare const UserScalarFieldEnum: {
+    readonly id: "id";
+    readonly email: "email";
+    readonly password: "password";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
+};
+export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
 export declare const ClienteScalarFieldEnum: {
     readonly cnpj: "cnpj";
     readonly razaoSocial: "razaoSocial";
@@ -38,6 +47,7 @@ export declare const FaturaScalarFieldEnum: {
     readonly descricaoPagamento: "descricaoPagamento";
     readonly descricaoLocacao: "descricaoLocacao";
     readonly valorLocacao: "valorLocacao";
+    readonly status: "status";
     readonly createdAt: "createdAt";
     readonly updatedAt: "updatedAt";
 };

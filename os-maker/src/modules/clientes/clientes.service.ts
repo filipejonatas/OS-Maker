@@ -2,7 +2,7 @@ import { Injectable, NotFoundException, BadRequestException } from "@nestjs/comm
 import { PrismaService } from "../../prisma/prisma.service";
 import { CreateClienteDto } from "./clientes.dto";
 import { UpdateClienteDto } from "./atualizar-cliente.dto";
-import { Prisma } from "../../../generated/prisma/client.js";
+import { Prisma } from "../../../generated/prisma/client";
 
 @Injectable()
 export class ClientesService {

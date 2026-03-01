@@ -1,5 +1,6 @@
 import type * as runtime from "@prisma/client/runtime/client";
-import type * as Prisma from "../internal/prismaNamespace.js";
+import type * as $Enums from "../enums";
+import type * as Prisma from "../internal/prismaNamespace";
 export type FaturaModel = runtime.Types.Result.DefaultSelection<Prisma.$FaturaPayload>;
 export type AggregateFatura = {
     _count: FaturaCountAggregateOutputType | null;
@@ -22,6 +23,7 @@ export type FaturaMinAggregateOutputType = {
     descricaoPagamento: string | null;
     descricaoLocacao: string | null;
     valorLocacao: runtime.Decimal | null;
+    status: $Enums.FaturaStatus | null;
     createdAt: Date | null;
     updatedAt: Date | null;
 };
@@ -33,6 +35,7 @@ export type FaturaMaxAggregateOutputType = {
     descricaoPagamento: string | null;
     descricaoLocacao: string | null;
     valorLocacao: runtime.Decimal | null;
+    status: $Enums.FaturaStatus | null;
     createdAt: Date | null;
     updatedAt: Date | null;
 };
@@ -44,6 +47,7 @@ export type FaturaCountAggregateOutputType = {
     descricaoPagamento: number;
     descricaoLocacao: number;
     valorLocacao: number;
+    status: number;
     createdAt: number;
     updatedAt: number;
     _all: number;
@@ -62,6 +66,7 @@ export type FaturaMinAggregateInputType = {
     descricaoPagamento?: true;
     descricaoLocacao?: true;
     valorLocacao?: true;
+    status?: true;
     createdAt?: true;
     updatedAt?: true;
 };
@@ -73,6 +78,7 @@ export type FaturaMaxAggregateInputType = {
     descricaoPagamento?: true;
     descricaoLocacao?: true;
     valorLocacao?: true;
+    status?: true;
     createdAt?: true;
     updatedAt?: true;
 };
@@ -84,6 +90,7 @@ export type FaturaCountAggregateInputType = {
     descricaoPagamento?: true;
     descricaoLocacao?: true;
     valorLocacao?: true;
+    status?: true;
     createdAt?: true;
     updatedAt?: true;
     _all?: true;
@@ -124,6 +131,7 @@ export type FaturaGroupByOutputType = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal;
+    status: $Enums.FaturaStatus;
     createdAt: Date;
     updatedAt: Date;
     _count: FaturaCountAggregateOutputType | null;
@@ -146,6 +154,7 @@ export type FaturaWhereInput = {
     descricaoPagamento?: Prisma.StringFilter<"Fatura"> | string;
     descricaoLocacao?: Prisma.StringFilter<"Fatura"> | string;
     valorLocacao?: Prisma.DecimalFilter<"Fatura"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFilter<"Fatura"> | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFilter<"Fatura"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Fatura"> | Date | string;
     cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>;
@@ -158,6 +167,7 @@ export type FaturaOrderByWithRelationInput = {
     descricaoPagamento?: Prisma.SortOrder;
     descricaoLocacao?: Prisma.SortOrder;
     valorLocacao?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
     cliente?: Prisma.ClienteOrderByWithRelationInput;
@@ -173,6 +183,7 @@ export type FaturaWhereUniqueInput = Prisma.AtLeast<{
     descricaoPagamento?: Prisma.StringFilter<"Fatura"> | string;
     descricaoLocacao?: Prisma.StringFilter<"Fatura"> | string;
     valorLocacao?: Prisma.DecimalFilter<"Fatura"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFilter<"Fatura"> | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFilter<"Fatura"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Fatura"> | Date | string;
     cliente?: Prisma.XOR<Prisma.ClienteScalarRelationFilter, Prisma.ClienteWhereInput>;
@@ -185,6 +196,7 @@ export type FaturaOrderByWithAggregationInput = {
     descricaoPagamento?: Prisma.SortOrder;
     descricaoLocacao?: Prisma.SortOrder;
     valorLocacao?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
     _count?: Prisma.FaturaCountOrderByAggregateInput;
@@ -204,6 +216,7 @@ export type FaturaScalarWhereWithAggregatesInput = {
     descricaoPagamento?: Prisma.StringWithAggregatesFilter<"Fatura"> | string;
     descricaoLocacao?: Prisma.StringWithAggregatesFilter<"Fatura"> | string;
     valorLocacao?: Prisma.DecimalWithAggregatesFilter<"Fatura"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusWithAggregatesFilter<"Fatura"> | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeWithAggregatesFilter<"Fatura"> | Date | string;
     updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Fatura"> | Date | string;
 };
@@ -214,6 +227,7 @@ export type FaturaCreateInput = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.FaturaStatus;
     createdAt?: Date | string;
     updatedAt?: Date | string;
     cliente: Prisma.ClienteCreateNestedOneWithoutFaturasInput;
@@ -226,6 +240,7 @@ export type FaturaUncheckedCreateInput = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.FaturaStatus;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -236,6 +251,7 @@ export type FaturaUpdateInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     cliente?: Prisma.ClienteUpdateOneRequiredWithoutFaturasNestedInput;
@@ -248,6 +264,7 @@ export type FaturaUncheckedUpdateInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -259,6 +276,7 @@ export type FaturaCreateManyInput = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.FaturaStatus;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -269,6 +287,7 @@ export type FaturaUpdateManyMutationInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -280,6 +299,7 @@ export type FaturaUncheckedUpdateManyInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -299,6 +319,7 @@ export type FaturaCountOrderByAggregateInput = {
     descricaoPagamento?: Prisma.SortOrder;
     descricaoLocacao?: Prisma.SortOrder;
     valorLocacao?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -313,6 +334,7 @@ export type FaturaMaxOrderByAggregateInput = {
     descricaoPagamento?: Prisma.SortOrder;
     descricaoLocacao?: Prisma.SortOrder;
     valorLocacao?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -324,6 +346,7 @@ export type FaturaMinOrderByAggregateInput = {
     descricaoPagamento?: Prisma.SortOrder;
     descricaoLocacao?: Prisma.SortOrder;
     valorLocacao?: Prisma.SortOrder;
+    status?: Prisma.SortOrder;
     createdAt?: Prisma.SortOrder;
     updatedAt?: Prisma.SortOrder;
 };
@@ -375,6 +398,9 @@ export type DecimalFieldUpdateOperationsInput = {
     multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string;
     divide?: runtime.Decimal | runtime.DecimalJsLike | number | string;
 };
+export type EnumFaturaStatusFieldUpdateOperationsInput = {
+    set?: $Enums.FaturaStatus;
+};
 export type FaturaCreateWithoutClienteInput = {
     id?: string;
     numeroFatura: string;
@@ -382,6 +408,7 @@ export type FaturaCreateWithoutClienteInput = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.FaturaStatus;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -392,6 +419,7 @@ export type FaturaUncheckedCreateWithoutClienteInput = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.FaturaStatus;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -427,6 +455,7 @@ export type FaturaScalarWhereInput = {
     descricaoPagamento?: Prisma.StringFilter<"Fatura"> | string;
     descricaoLocacao?: Prisma.StringFilter<"Fatura"> | string;
     valorLocacao?: Prisma.DecimalFilter<"Fatura"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFilter<"Fatura"> | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFilter<"Fatura"> | Date | string;
     updatedAt?: Prisma.DateTimeFilter<"Fatura"> | Date | string;
 };
@@ -437,6 +466,7 @@ export type FaturaCreateManyClienteInput = {
     descricaoPagamento: string;
     descricaoLocacao: string;
     valorLocacao: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: $Enums.FaturaStatus;
     createdAt?: Date | string;
     updatedAt?: Date | string;
 };
@@ -447,6 +477,7 @@ export type FaturaUpdateWithoutClienteInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -457,6 +488,7 @@ export type FaturaUncheckedUpdateWithoutClienteInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -467,6 +499,7 @@ export type FaturaUncheckedUpdateManyWithoutClienteInput = {
     descricaoPagamento?: Prisma.StringFieldUpdateOperationsInput | string;
     descricaoLocacao?: Prisma.StringFieldUpdateOperationsInput | string;
     valorLocacao?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    status?: Prisma.EnumFaturaStatusFieldUpdateOperationsInput | $Enums.FaturaStatus;
     createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
     updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
@@ -478,6 +511,7 @@ export type FaturaSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     descricaoPagamento?: boolean;
     descricaoLocacao?: boolean;
     valorLocacao?: boolean;
+    status?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>;
@@ -490,6 +524,7 @@ export type FaturaSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
     descricaoPagamento?: boolean;
     descricaoLocacao?: boolean;
     valorLocacao?: boolean;
+    status?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>;
@@ -502,6 +537,7 @@ export type FaturaSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
     descricaoPagamento?: boolean;
     descricaoLocacao?: boolean;
     valorLocacao?: boolean;
+    status?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
     cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>;
@@ -514,10 +550,11 @@ export type FaturaSelectScalar = {
     descricaoPagamento?: boolean;
     descricaoLocacao?: boolean;
     valorLocacao?: boolean;
+    status?: boolean;
     createdAt?: boolean;
     updatedAt?: boolean;
 };
-export type FaturaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numeroFatura" | "dataEmissao" | "clienteCnpj" | "descricaoPagamento" | "descricaoLocacao" | "valorLocacao" | "createdAt" | "updatedAt", ExtArgs["result"]["fatura"]>;
+export type FaturaOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "numeroFatura" | "dataEmissao" | "clienteCnpj" | "descricaoPagamento" | "descricaoLocacao" | "valorLocacao" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["fatura"]>;
 export type FaturaInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
     cliente?: boolean | Prisma.ClienteDefaultArgs<ExtArgs>;
 };
@@ -540,6 +577,7 @@ export type $FaturaPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
         descricaoPagamento: string;
         descricaoLocacao: string;
         valorLocacao: runtime.Decimal;
+        status: $Enums.FaturaStatus;
         createdAt: Date;
         updatedAt: Date;
     }, ExtArgs["result"]["fatura"]>;
@@ -607,6 +645,7 @@ export interface FaturaFieldRefs {
     readonly descricaoPagamento: Prisma.FieldRef<"Fatura", 'String'>;
     readonly descricaoLocacao: Prisma.FieldRef<"Fatura", 'String'>;
     readonly valorLocacao: Prisma.FieldRef<"Fatura", 'Decimal'>;
+    readonly status: Prisma.FieldRef<"Fatura", 'FaturaStatus'>;
     readonly createdAt: Prisma.FieldRef<"Fatura", 'DateTime'>;
     readonly updatedAt: Prisma.FieldRef<"Fatura", 'DateTime'>;
 }

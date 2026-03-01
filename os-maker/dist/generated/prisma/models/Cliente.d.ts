@@ -1,5 +1,5 @@
 import type * as runtime from "@prisma/client/runtime/client";
-import type * as Prisma from "../internal/prismaNamespace.js";
+import type * as Prisma from "../internal/prismaNamespace";
 export type ClienteModel = runtime.Types.Result.DefaultSelection<Prisma.$ClientePayload>;
 export type AggregateCliente = {
     _count: ClienteCountAggregateOutputType | null;
@@ -214,12 +214,6 @@ export type ClienteMinOrderByAggregateInput = {
 export type ClienteScalarRelationFilter = {
     is?: Prisma.ClienteWhereInput;
     isNot?: Prisma.ClienteWhereInput;
-};
-export type StringFieldUpdateOperationsInput = {
-    set?: string;
-};
-export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string;
 };
 export type ClienteCreateNestedOneWithoutFaturasInput = {
     create?: Prisma.XOR<Prisma.ClienteCreateWithoutFaturasInput, Prisma.ClienteUncheckedCreateWithoutFaturasInput>;
